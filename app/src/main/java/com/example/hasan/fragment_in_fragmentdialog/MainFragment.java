@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainFragment extends Fragment {
+public class MainFragment extends Fragment implements CustomFragmentDialog.OnInputSelected {
 
 
     Button btOpenDialog;
@@ -34,6 +34,7 @@ public class MainFragment extends Fragment {
             public void onClick(View v) {
                 Toast.makeText(getContext(), "Butona Basıldı", Toast.LENGTH_SHORT).show();
                 if (dialog != null) {
+                    dialog.setTargetFragment(MainFragment.this, 1);
                     dialog.show(getFragmentManager(), "Hasan");
                 } else {
                     Toast.makeText(getContext(), "Fatal Error", Toast.LENGTH_SHORT).show();
@@ -42,5 +43,10 @@ public class MainFragment extends Fragment {
         });
 
         return v;
+    }
+
+    @Override
+    public void sendInput(String input) {
+        Toast.makeText(getContext(), "Aldım : " + input, Toast.LENGTH_SHORT).show();
     }
 }
