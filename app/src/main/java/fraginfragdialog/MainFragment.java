@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.example.hasan.fragment_in_fragmentdialog.R;
 
-public class MainFragment extends Fragment implements CustomFragmentDialog.OnInputSelected {
+public class MainFragment extends Fragment {
 
 
     Button btOpenDialog;
@@ -31,13 +31,18 @@ public class MainFragment extends Fragment implements CustomFragmentDialog.OnInp
 
 
         final CustomFragmentDialog dialog = new CustomFragmentDialog();
+        dialog.callBack(new CustomFragmentDialog.OnInputSelected() {
+            @Override
+            public void sendInput(String input) {
+                Toast.makeText(getContext(), ":" + input, Toast.LENGTH_SHORT).show();
+            }
+        });
         btOpenDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getContext(), "Butona Basıldı", Toast.LENGTH_SHORT).show();
                 if (dialog != null) {
-                    dialog.setTargetFragment(MainFragment.this, 1);
-                    dialog.show(getFragmentManager(), "Hasan");
+                    dialog.show(getFragmentManager(), "dialogTag");
                 } else {
                     Toast.makeText(getContext(), "Fatal Error", Toast.LENGTH_SHORT).show();
                 }
@@ -45,10 +50,5 @@ public class MainFragment extends Fragment implements CustomFragmentDialog.OnInp
         });
 
         return v;
-    }
-
-    @Override
-    public void sendInput(String input) {
-        Toast.makeText(getContext(), "Aldım : " + input, Toast.LENGTH_SHORT).show();
     }
 }
