@@ -1,4 +1,4 @@
-package com.example.hasan.fragment_in_fragmentdialog;
+package fraginfragdialog;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.hasan.fragment_in_fragmentdialog.R;
 
 public class CustomFragmentDialog extends DialogFragment {
 

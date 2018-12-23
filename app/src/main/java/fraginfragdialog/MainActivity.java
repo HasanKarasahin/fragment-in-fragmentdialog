@@ -1,8 +1,10 @@
-package com.example.hasan.fragment_in_fragmentdialog;
+package fraginfragdialog;
 
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.hasan.fragment_in_fragmentdialog.R;
 
 public class MainActivity extends AppCompatActivity {
 
